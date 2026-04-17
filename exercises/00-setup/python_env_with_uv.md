@@ -6,23 +6,40 @@ uv is a simple and fast way to manage Python environments. It is significantly f
 
 The main advantage of conda over uv is that conda can also manage things beyond Python packages — for example, NVIDIA graphics card drivers, which become important in advanced machine learning work.
 
-You don't need to install uv to follow this course. Conda is perfectly sufficient. We wanted to include an intro into uv, since it is growing in popularity and will become more importante every year.
+
 
 ## Installing uv
 
-Follow the installation instructions on the [official uv website](https://docs.astral.sh/uv/getting-started/installation/) based on the operating system that you are using.
 
-## Creating a virtual environment
+On **Windows**:
+```powershell
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
 
-Open your terminal, navigate to your project folder, and run:
-
-```bash
-uv venv --python 3.12
 ```
 
-This creates a `.venv` folder in your current directory. uv will automatically download Python 3.12 if it is not already installed on your system.
+On **Mac / Linux**:
+```bash
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
+
+In both cases you need to close and reopen the terminal (or VsCode to make uv available).
+
+If you want to know more, you can follow the installation instructions on the [official uv website](https://docs.astral.sh/uv/getting-started/installation/) based on the operating system that you are using.
+
+
+## Load the Packages
+
+Open the terminal in the root directory of the lecture and type
+```bash
+uv sync
+```
+After that uv will install all packages and uv should be available as a kernel in your jupyter. The name of the kernel is always the name of the folder. In our case the class name of the current year YYYY: **IntroML-YYYY**
+
+# More uv information
+This was enough to follow the class and install all the packages. If you are interested you can read on.
 
 ## Activating the environment
+Just like conda you can activate the environment manually if you are not using the VSCode jupyter kernel:
 
 On **Mac / Linux**:
 ```bash
@@ -36,11 +53,6 @@ On **Windows**:
 
 Your terminal prompt will show `(.venv)` to confirm the environment is active.
 
-## Installing packages
-
-```bash
-uv pip install jupyter jupyterlab numpy scipy pandas matplotlib seaborn plotly scikit-learn ipywidgets tqdm
-```
 
 ## Launching Jupyter Lab
 
